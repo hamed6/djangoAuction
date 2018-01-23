@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table class="searchAuction">
+    <tr>
+        <td style="padding-bottom: 5%">
+            <a href="/home/">Home</a>
+        </td>
+    </tr>
+
+    <td>
+        <div class="searchAuction">
+            <label style="font-style: italic">Search Auction</label>
+            <form method="post" action="/browseAuction/">
+                {% csrf_token %}
+                <input type="search" name="userTitle" autofocus>
+                <input type="submit" value="Search">
+            </form>
+        </div>
+
+    </td>
+    <p>
+    <td>
+        <label>All prices are in Euro, however, you can convert the price to your currency.</label>
+        <a href="/currency/" style="color: crimson;font-size: large;padding-left: 10px">Check Currency</a>
+    </td>
+    </p>
+
+    <tr>
+        <td>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <p style="color: red">{{ msgBid2 }}</p>
+        </td>
+    </tr>
+</table>
+<h1 style="align:center">Auction List</h1>
+<table class="showAuction" style="width: 100%">
+
+    <div class="showAuction">
+        {% if newAuctionHtml %}
+            <tr>
+                <td>
+                    <p style="color: orangered">Title</p>
+                </td>
+                <td>
+                    <p style="color: chocolate">Description</p>
+                </td>
+                <td>
+                    <p style="color: chocolate">Original Price</p>
+                </td>
+                <td>
+                    <p style="color: chocolate">Bid?</p>
+                </td>
+                <td>
+                    <p style="color: chocolate">Creation Time</p>
+                </td>
+                <td>
+                    <p style="color: chocolate">DeadLine</p>
+                </td>
+                <td>
+                    <p style="color: chocolate">Created By</p>
+                </td>
+            </tr>
+
+            {% for auction in newAuctionHtml %}
+
+                <td>
+                    {{ auction.auctionTitle }}
+                </td>
+                <td>
+                    {{ auction.auctionDescription }}
+                </td>
+                <td>
+
+                    {{ auction.auctionPrice }}
+                </td>
+
+
+                <td>
+                    {% if request.user.is_staff and auction.auctionBan == True %}
+{#                        <td>#}
+                            <label>Banned</label>
+{#                        </td>#}
+                            {% else %}
+{#                        <td>#}
+                            <form action="/bidAuction/{{ auction.id }}/" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="Check">
+                            </form>
+{#                        </td>#}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ auction.auctionCreationTime }}
+                </td>
+                <td>
+                    {{ auction.auctionDeadline }}
+                </td>
+                <td>
+                    {{ auction.auctionSeller }}
+                </td>
+                {% if request.user.is_staff %}
+                    {% if auction.auctionBan == False %}
+                        <td>
+                            <form action="/banAuction/{{ auction.id }}/" method="post">
+                                <input value="Ban" type="submit">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                    {% else %}
+                        <td><label>Banned</label></td>
+                    {% endif %}
+                {% endif %}
+                </tr>
+
+            {% endfor %}
+        {% endif %}
+
+        {#########################################################################3    #}
+
+        {% if uniqueAuctionUser %}
+            {% block browseAuc %}
+                <tr>
+                    <td>
+                        <p style="color: orangered">Title</p>
+                    </td>
+                    <td>
+                        <p style="color: chocolate">Description</p>
+                    </td>
+                    <td>
+                        <p style="color: chocolate">Price</p>
+                    </td>
+                    <td>
+                        <p style="color: chocolate">Creation Time</p>
+                    </td>
+                    <td>
+                        <p style="color: chocolate">DeadLine</p>
+                    </td>
+                    <td>
+                        <p style="color: chocolate">Created By</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ uniqueAuctionUser.auctionTitle }}
+                    </td>
+                    <td>
+                        {{ uniqueAuctionUser.auctionDescription }}
+                    </td>
+                    <td>
+
+                        {{ uniqueAuctionUser.auctionPrice }}
+                    </td>
+                    <td>
+
+
+                    </td>
+                    <td>
+                        {{ uniqueAuctionUser.auctionCreationTime }}
+                    </td>
+                    <td>
+                        {{ uniqueAuctionUser.auctionDeadline }}
+                    </td>
+                    <td>
+                        {{ uniqueAuctionUser.auctionSeller }}
+                    </td>
+                </tr>
+            {% endblock browseAuc %}
+        {% endif %}
+
+
+    </div>
+</table>
+
+</body>
+</html>

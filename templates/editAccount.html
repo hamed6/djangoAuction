@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><a href="/home/">Home</a></p>
+<form action="" method="post">
+    {% csrf_token %}
+{#    <input type="password" placeholder="New Password" name="updatePass">#}
+    <label>New Email:</label>
+    <input type="email" placeholder="Email" name="updateMail" autofocus required>
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

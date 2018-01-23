@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/home/">Home</a>
+<br>
+<label style="color: blueviolet">Auction Title :</label>
+{{ edit.auctionTitle }}
+<form action="/editAuction/{{ edit.id }}/" method="post">{% csrf_token %}
+    <textarea name="getEditedAuction"  rows="10" cols="50"  >{{ edit.auctionDescription }}</textarea>
+    <br>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

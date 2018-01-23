@@ -1,0 +1,156 @@
+[
+{
+    "model": "Yaas.newauction",
+    "pk": 1,
+    "fields": {
+        "auctionTitle": "laptop",
+        "auctionDescription": "DELL",
+        "auctionPrice": 56,
+        "auctionCreationTime": "2017-10-07T11:18:50Z",
+        "auctionDeadline": "2017-10-29T11:18:54Z",
+        "auctionSeller": "hamed",
+        "auctionBan": false,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 2,
+    "fields": {
+        "auctionTitle": "phone",
+        "auctionDescription": "third auction",
+        "auctionPrice": 3,
+        "auctionCreationTime": "2017-10-07T11:18:39Z",
+        "auctionDeadline": "2017-10-17T11:18:43Z",
+        "auctionSeller": "hamed",
+        "auctionBan": true,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 4,
+    "fields": {
+        "auctionTitle": "Update Shoes",
+        "auctionDescription": "big size men shoes are best price",
+        "auctionPrice": 6,
+        "auctionCreationTime": "2017-10-07T11:20:35Z",
+        "auctionDeadline": "2017-10-31T11:20:39Z",
+        "auctionSeller": "admin",
+        "auctionBan": false,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 5,
+    "fields": {
+        "auctionTitle": "cd",
+        "auctionDescription": "cd and macbook",
+        "auctionPrice": 45,
+        "auctionCreationTime": "2017-10-07T11:19:27Z",
+        "auctionDeadline": "2017-10-28T11:19:30Z",
+        "auctionSeller": "admin",
+        "auctionBan": false,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 7,
+    "fields": {
+        "auctionTitle": "bag",
+        "auctionDescription": "backpack",
+        "auctionPrice": 5,
+        "auctionCreationTime": "2017-10-04T21:46:39Z",
+        "auctionDeadline": "2018-02-01T02:00:00Z",
+        "auctionSeller": "admin",
+        "auctionBan": false,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 13,
+    "fields": {
+        "auctionTitle": "men shoe",
+        "auctionDescription": "describe shoes",
+        "auctionPrice": 6,
+        "auctionCreationTime": "2017-10-06T22:50:41Z",
+        "auctionDeadline": "2018-02-03T02:01:00Z",
+        "auctionSeller": "hamed",
+        "auctionBan": false,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 14,
+    "fields": {
+        "auctionTitle": "test auc",
+        "auctionDescription": "test auction",
+        "auctionPrice": 4,
+        "auctionCreationTime": "2017-10-06T22:54:40Z",
+        "auctionDeadline": "2018-02-02T02:01:00Z",
+        "auctionSeller": "hamed",
+        "auctionBan": true,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 15,
+    "fields": {
+        "auctionTitle": "user",
+        "auctionDescription": "this is to show how user is diplaying",
+        "auctionPrice": 65,
+        "auctionCreationTime": "2017-10-19T12:06:56.900Z",
+        "auctionDeadline": "2018-08-29T10:58:00Z",
+        "auctionSeller": "hamed",
+        "auctionBan": false,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 16,
+    "fields": {
+        "auctionTitle": "new",
+        "auctionDescription": "test user 2 is checking the bag",
+        "auctionPrice": 45,
+        "auctionCreationTime": "2017-10-19T12:07:53.522Z",
+        "auctionDeadline": "2018-10-29T09:57:00Z",
+        "auctionSeller": "hamed2",
+        "auctionBan": false,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 17,
+    "fields": {
+        "auctionTitle": "Paper",
+        "auctionDescription": "box of paper are in cheap price",
+        "auctionPrice": 115,
+        "auctionCreationTime": "2017-10-19T12:08:51.406Z",
+        "auctionDeadline": "2017-11-18T22:59:00Z",
+        "auctionSeller": "hamed3",
+        "auctionBan": false,
+        "auctionResolved": false
+    }
+},
+{
+    "model": "Yaas.newauction",
+    "pk": 18,
+    "fields": {
+        "auctionTitle": "real",
+        "auctionDescription": "to check database status",
+        "auctionPrice": 50,
+        "auctionCreationTime": "2018-01-10T10:37:00.020Z",
+        "auctionDeadline": "2019-01-31T10:11:00Z",
+        "auctionSeller": "hamed2",
+        "auctionBan": false,
+        "auctionResolved": false
+    }
+}
+]

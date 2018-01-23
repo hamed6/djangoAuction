@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/home/">Home</a>
+<form method="post" name="userAuctionPost">{% csrf_token %}
+    <table>
+        <tr>
+            <td>
+                <p>Title</p>
+            </td>
+            <td>
+                <input type="text" required placeholder="Title" name="getUserTitle" value={{ postUserTitle }}>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p>Description</p>
+            </td>
+            <td>
+                <textarea required placeholder="Descriptption" rows="10" cols="50" style="resize: vertical"name="getUserDesc">{{ postUserDesc }}</textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p>Minimum Price</p>
+            </td>
+            <td>
+                <input required type="number" min="1" max="" placeholder="Min Price" name="getUserPrice"
+                       value={{ postUserPrice }}> <label>€</label>
+                {#                oninvalid="this.setCustomValidity('Cann\'t be less than 1 Euro ')#}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Auction deadline</p>
+            </td>
+            <td>
+                <input required type="datetime-local" name="getUserTime" value={{ postUserTime }}>
+            </td>
+            <td>
+                {{ Error }}
+
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>{{ confirmLabel }}</label>
+            </td>
+            <td>    {{ confirmForm }}</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Save">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

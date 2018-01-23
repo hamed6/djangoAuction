@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table border="1px">
+        <tr>
+            <td>
+                <p><label>Title</label></p>
+            </td>
+            <td>
+                <p><label>Description</label></p>
+            </td>
+            <td>
+                <p><label>Original Price</label></p>
+            </td>
+
+            <td>
+                <p><label>Minimum Bid</label></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>{{ aucToBid.auctionTitle }}</p>
+            </td>
+            <td>
+                <p>{{ aucToBid.auctionDescription }}</p>
+                <input type="hidden" value="{{ aucToBid.auctionDescription }}" name="aucDesPost">
+            </td>
+            <td>
+                <p><label>{{ origPrice }}</label></p>
+            </td>
+
+            <td>
+                <p><input type="number" min="{{ aucPrice }}" value="{{ aucPrice }}" name="bidPrice" autofocus></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="postBid" value="Save">
+            </td>
+            <td>
+                {{ msg }}
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

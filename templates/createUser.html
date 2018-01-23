@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/home/">Home</a>
+<h2>Register</h2>
+<form action="" method="post" style="color: blue ; font-style: italic">{% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Register">
+</form>
+</body>
+</html>
+

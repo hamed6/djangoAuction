@@ -1,0 +1,212 @@
+[
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 1,
+    "fields": {
+        "bidPrice": "59.01",
+        "bidBiddersID": 9,
+        "bidCreateDate": "2017-10-27T12:57:39.030Z",
+        "bidAuctionId": 1
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 2,
+    "fields": {
+        "bidPrice": "56.01",
+        "bidBiddersID": 9,
+        "bidCreateDate": "2017-10-27T12:57:54.549Z",
+        "bidAuctionId": 1
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 3,
+    "fields": {
+        "bidPrice": "0.00",
+        "bidBiddersID": 9,
+        "bidCreateDate": "2017-10-27T20:20:44.675Z",
+        "bidAuctionId": 4
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 4,
+    "fields": {
+        "bidPrice": "123.00",
+        "bidBiddersID": 9,
+        "bidCreateDate": "2017-10-27T20:27:05.163Z",
+        "bidAuctionId": 1
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 5,
+    "fields": {
+        "bidPrice": "70.01",
+        "bidBiddersID": 9,
+        "bidCreateDate": "2017-10-28T07:45:18.530Z",
+        "bidAuctionId": 15
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 6,
+    "fields": {
+        "bidPrice": "9.01",
+        "bidBiddersID": 10,
+        "bidCreateDate": "2017-10-28T07:49:31.252Z",
+        "bidAuctionId": 13
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 7,
+    "fields": {
+        "bidPrice": "10.02",
+        "bidBiddersID": 10,
+        "bidCreateDate": "2017-10-28T07:49:45.596Z",
+        "bidAuctionId": 13
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 8,
+    "fields": {
+        "bidPrice": "15.03",
+        "bidBiddersID": 10,
+        "bidCreateDate": "2017-10-28T07:50:13.870Z",
+        "bidAuctionId": 13
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 9,
+    "fields": {
+        "bidPrice": "134.01",
+        "bidBiddersID": 10,
+        "bidCreateDate": "2017-10-28T10:10:01.721Z",
+        "bidAuctionId": 1
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 10,
+    "fields": {
+        "bidPrice": "89.02",
+        "bidBiddersID": 10,
+        "bidCreateDate": "2017-10-28T10:40:04.698Z",
+        "bidAuctionId": 15
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 11,
+    "fields": {
+        "bidPrice": "138.02",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2017-10-28T10:55:24.198Z",
+        "bidAuctionId": 1
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 12,
+    "fields": {
+        "bidPrice": "18.04",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2017-10-28T12:26:57.925Z",
+        "bidAuctionId": 13
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 13,
+    "fields": {
+        "bidPrice": "116.01",
+        "bidBiddersID": 9,
+        "bidCreateDate": "2017-10-28T22:15:07.727Z",
+        "bidAuctionId": 17
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 14,
+    "fields": {
+        "bidPrice": "50.00",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2018-01-22T10:58:36.275Z",
+        "bidAuctionId": 18
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 15,
+    "fields": {
+        "bidPrice": "50.00",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2018-01-22T11:03:18.587Z",
+        "bidAuctionId": 18
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 16,
+    "fields": {
+        "bidPrice": "50.00",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2018-01-22T11:03:24.465Z",
+        "bidAuctionId": 18
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 17,
+    "fields": {
+        "bidPrice": "50.00",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2018-01-22T11:03:52.529Z",
+        "bidAuctionId": 18
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 18,
+    "fields": {
+        "bidPrice": "50.00",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2018-01-22T11:03:57.154Z",
+        "bidAuctionId": 18
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 19,
+    "fields": {
+        "bidPrice": "140.00",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2018-01-22T12:05:50.862Z",
+        "bidAuctionId": 18
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 20,
+    "fields": {
+        "bidPrice": "47.00",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2018-01-22T12:09:26.509Z",
+        "bidAuctionId": 16
+    }
+},
+{
+    "model": "Yaas.bidauctionmodel",
+    "pk": 21,
+    "fields": {
+        "bidPrice": "48.00",
+        "bidBiddersID": 1,
+        "bidCreateDate": "2018-01-22T12:12:36.677Z",
+        "bidAuctionId": 16
+    }
+}
+]

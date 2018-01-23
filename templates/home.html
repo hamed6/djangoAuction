@@ -1,0 +1,90 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+
+</head>
+<body>
+<div>
+{#    <form action="" method="post">{% csrf_token %}#}
+        <ul >{% trans "Language:" %}
+            <li >
+                <a href="/home?lang=En">{% trans "English" %}</a>
+            </li>
+            <li>
+                <a href="/home?lang=Pr">{% trans "Persian" %}</a>
+            </li>
+        </ul>
+{#    </form>#}
+</div>
+<h3>Hello {{ user }}</h3>
+<h3>{% trans "Welcome to my site" %}</h3>
+
+<div>
+    <ul>
+        {% if request.user.is_authenticated %}
+            <li><a href="/createAuction/">Create New Auction</a></li>
+            <li><a href="./logout">Log out</a></li>
+            <li><a href="/sellerProfile/">My Profile</a></li>
+            <li><a href="/editAccount/">Edit my account</a></li>
+        {% endif %}
+        {% if not request.user.is_authenticated %}
+            <li><a href="/createUser/">Create User</a></li>
+        {% endif %}
+        <li><a href="/browseAuction/">Browse and Search Auction</a></li>
+
+
+    </ul>
+    <div>
+        <table style="padding-top: 2%">
+            {% if not request.user.is_authenticated %}
+                <form action="" method="post">{% csrf_token %}
+                    <tr>
+                        <td>{% trans "User" %}</td>
+                        <td><input type="text" name="un"></td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Password" %}</td>
+                        <td><input type="password" name="pw"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button>Login</button>
+                        </td>
+                    </tr>
+                </form>
+            {% endif %}
+            <tr>
+                <td>
+                    <p style="color: red">   {{ msgBid }}</p>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    {% if form.errors %}
+                        <p>Sorry not valid username or password</p>
+                    {% endif %}
+                </td>
+            </tr>
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

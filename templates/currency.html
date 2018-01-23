@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/home/">Home</a>
+<p>Name the price and select your currency. Then Check button</p>
+<form action="" method="post">{% csrf_token %}
+    <p>
+        <input type="number" name="userCurrency" min="0" required>
+    </p>
+    <p>
+        <input type="submit" name="" value="Check"><br>
+    </p>
+    <p>
+        {% if msg %}
+        <label>EURrun to {{ userCU }} is: {{ msg }}</label>
+            <p><a href="/browseAuction/">Back</a></p>
+        {% endif %}
+    </p>
+    {% for c in currency %}
+        <ul style="margin: 1px"><input required type="radio" name="t1" value={{ c }}>{{ c }} </ul>
+    {% endfor %}
+
+</form>
+</body>
+</html>
