@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Yaas.apps.YaasConfig',
     'rest_framework',
     'rest_framework.authtoken',
+    'autofixture',
     # 'django_cron',
     # 'Yaas',
 ]

@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 # from __future__ import unicode_literals
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
-from models import newAuction, bidAuctionModel , userLanguage
+
+from Yaas.forms import createAuctionForm ,confirmationForm
+from Yaas.models import newAuction, bidAuctionModel , userLanguage
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.contrib import auth
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
-from forms import *
+from django.forms import *
 from django.contrib.auth.forms import PasswordChangeForm
 from django.core.mail import send_mail, EmailMessage
 import urllib, json
@@ -136,7 +138,7 @@ def createAuction(request):
             saveAuction.auctionDeadline = datetime.strptime(userDate, '%Y-%m-%dT%H:%M')
             saveAuction.auctionSeller = request.user.username
             saveAuction.save()
-            print saveAuction.id
+
 
             mail_subject = "Auction is up!"
             to_email = request.user.email

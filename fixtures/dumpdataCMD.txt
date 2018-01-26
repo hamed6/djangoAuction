@@ -1,0 +1,1 @@
+python manage.py dumpdata Yaas.newAuction  --indent 4 --format=json > fixtures/createdAuctions.json
