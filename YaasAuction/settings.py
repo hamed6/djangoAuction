@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Yaas.apps.YaasConfig',
+    # 'YaasAuction',
     'rest_framework',
     'rest_framework.authtoken',
     'autofixture',

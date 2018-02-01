@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # from __future__ import unicode_literals
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.template.backends import django
 
 from Yaas.forms import createAuctionForm ,confirmationForm
 from Yaas.models import newAuction, bidAuctionModel , userLanguage
@@ -8,7 +9,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.contrib import auth
 from django.contrib.auth.models import User
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from django.forms import *
 from django.contrib.auth.forms import PasswordChangeForm
 from django.core.mail import send_mail, EmailMessage
@@ -236,33 +237,34 @@ def bidAuction(request, auID):
         return HttpResponseRedirect('/browseAuction/')
 
 
-    else:
+    # else:
         # try & except for first bid cases
-        if request.POST.has_key('postBid')==False:
-            try:
-                if bidAuctionModel.objects.all().filter(bidAuctionId=auID).count() >0:
-                    bidAuc = bidAuctionModel.objects.all().filter(bidAuctionId=auID).aggregate(Max('bidPrice'))
-                    bidAuc=float( bidAuc['bidPrice__max'])
-                else:
-                    bidau=bidAuctionModel.objects.get(bidAuctionId=auID)
-                    bidAuc=bidau.bidPrice
+    if request.POST.get('postBid')==None:
+        try:
+            if bidAuctionModel.objects.all().filter(bidAuctionId=auID).count() >0:
+                bidAuc = bidAuctionModel.objects.all().filter(bidAuctionId=auID).aggregate(Max('bidPrice'))
+                bidAuc=float( bidAuc['bidPrice__max'])
+            else:
+                bidau=bidAuctionModel.objects.get(bidAuctionId=auID)
+                bidAuc=bidau.bidPrice
 
-                if auc.auctionPrice > bidAuc:
-                    p = auc.auctionPrice + 0.01
-                    return render(request, "bidAuction.html", {'aucToBid': auc, 'aucPrice': p , 'origPrice':auc.auctionPrice})
-                if auc.auctionPrice < bidAuc:
-                    return render(request, "bidAuction.html", {'aucToBid': auc, 'aucPrice': bidAuc+ 0.01 ,'origPrice':auc.auctionPrice})
-            except ObjectDoesNotExist:
-                # for first bidder just add price with 0.01
-                return render(request, "bidAuction.html", {'aucToBid': auc, 'aucPrice': auc.auctionPrice + 0.01,
-                                                           'origPrice':auc.auctionPrice})
+            if auc.auctionPrice > bidAuc:
+                p = auc.auctionPrice + 0.01
+                return render(request, "bidAuction.html", {'aucToBid': auc, 'aucPrice': p , 'origPrice':auc.auctionPrice})
+            if auc.auctionPrice < bidAuc:
+                return render(request, "bidAuction.html", {'aucToBid': auc, 'aucPrice': bidAuc+ 0.01 ,'origPrice':auc.auctionPrice})
+        except ObjectDoesNotExist:
+            # for first bidder just add price with 0.01
+            return render(request, "bidAuction.html", {'aucToBid': auc, 'aucPrice': auc.auctionPrice + 0.01,
+                                                       'origPrice':auc.auctionPrice})
     # to save the bid
-    if request.method=='POST' and request.POST.has_key('postBid'):
+    if request.method=='POST':
         '''Concurrency - U10'''
         # to chk concurrency , whether description has changed or not
         if newAuction.objects.get(id=auID).auctionDescription != request.POST.get('aucDesPost'):
-            return render(request, "bidAuction.html",{'msg':"Please refresh the page .There has been a change!"})
+            return render(request, "bidAuction.html",{'msg':"Please press back then check again.There is a change!"})
         else:
+
             bidAuc = bidAuctionModel()
 
             #finding & sending mail to seller , bidder and previous bidders
@@ -283,13 +285,18 @@ def bidAuction(request, auID):
             bidAuc.bidCreateDate =datetime.now()
             bidAuc.bidAuctionId =auc.id
             '''Soft deadline - OP2 '''
-            d=timedelta(minutes=5)
-            if auc.auctionDeadline - bidAuc.bidCreateDate == d:
-                auc.auctionDeadline+=d
+            # d=timedelta(minutes=5)
+            now= datetime.now(timezone.utc)
+            if auc.auctionDeadline -  now == timedelta(minutes=5):
+                auc.auctionDeadline+=timedelta(minutes=5)
                 newAuction.objects.filter(id=auID).update(auctionDeadline=auc.auctionDeadline)
             bidAuc.save()
 
-            return render(request,"bidAuction.html",{'msg':"Your bid is saved"})
+            return render(request,"bidAuction.html",{'msg':"Your bid is saved.Press BACK button!",'aucPrice':bidAuc.bidPrice,'origPrice':auc.auctionPrice})
+            # bidMSG=messages.info(request, 'Your bid is saved!')
+            # return HttpResponseRedirect('/bidAuction/'+auID)
+
+
 
 
 def checkLanguage(request):
